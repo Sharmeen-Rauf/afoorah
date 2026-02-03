@@ -11,29 +11,31 @@ const FILTERS = [
 ];
 
 const MOCK_PRODUCTS = [
-  { id: "1", name: "Quilted Ripstop Puffer", color: "Emerald", badge: "A FEW LEFT", price: "198", image: null },
-  { id: "2", name: "Quilted Ripstop Puffer", color: "Sage", price: "198", image: null },
-  { id: "3", name: "Hooded Jacket", color: "Forest", price: "245", image: null },
-  { id: "4", name: "Quilted Collar Jacket", color: "Slate", price: "225", image: null },
-  { id: "5", name: "Crewneck Sweater", color: "Oat", price: "128", image: null },
-  { id: "6", name: "Logo Tee", color: "Black", price: "58", image: null },
-  { id: "7", name: "Cargo Pants", color: "Olive", price: "165", image: null },
-  { id: "8", name: "Beanie", color: "Navy", price: "42", image: null },
+  { id: "1", slug: "ho25-quilted-ripstop-puffer-emerald", name: "Quilted Ripstop Puffer", color: "Emerald", badge: "A FEW LEFT", price: "198" },
+  { id: "2", slug: "ho25-quilted-ripstop-puffer-sage", name: "Quilted Ripstop Puffer", color: "Sage", price: "198" },
+  { id: "3", slug: "ho25-hooded-jacket-forest", name: "Hooded Jacket", color: "Forest", price: "245" },
+  { id: "4", slug: "ho25-quilted-collar-jacket-slate", name: "Quilted Collar Jacket", color: "Slate", price: "225" },
+  { id: "5", slug: "ho25-crewneck-sweater-oat", name: "Crewneck Sweater", color: "Oat", price: "128" },
+  { id: "6", slug: "ho25-logo-tee-black", name: "Logo Tee", color: "Black", price: "58" },
+  { id: "7", slug: "ho25-cargo-pants-olive", name: "Cargo Pants", color: "Olive", price: "165" },
+  { id: "8", slug: "ho25-beanie-navy", name: "Beanie", color: "Navy", price: "42" },
 ];
 
 function ProductCard({
+  slug,
   name,
   color,
   price,
   badge,
 }: {
+  slug: string;
   name: string;
   color: string;
   price: string;
   badge?: string;
 }) {
   return (
-    <Link href="#" className="group block">
+    <Link href={`/products/${slug}`} className="group block">
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-zinc-200">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-300 to-zinc-400" />
         {badge && (
@@ -119,6 +121,7 @@ export default function Holiday25Collection() {
             {MOCK_PRODUCTS.map((p) => (
               <ProductCard
                 key={p.id}
+                slug={p.slug}
                 name={p.name}
                 color={p.color}
                 price={p.price}

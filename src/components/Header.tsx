@@ -19,14 +19,14 @@ export default function Header({ variant = "dark" }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-5 pointer-events-none sm:px-8 md:px-12 bg-transparent ${textClass}`}
+      className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-5 sm:px-8 md:px-12 bg-transparent ${textClass}`}
     >
       <nav className="flex gap-8 font-sans text-sm tracking-widest uppercase">
         {nav.map(({ label, href }) => (
           <Link
             key={label}
             href={href}
-            className="pointer-events-auto transition-opacity hover:opacity-70"
+            className="transition-opacity hover:opacity-70"
           >
             {label}
           </Link>
@@ -34,15 +34,15 @@ export default function Header({ variant = "dark" }: HeaderProps) {
       </nav>
       <Link
         href="/"
-        className="absolute left-1/2 -translate-x-1/2 font-serif text-xl tracking-wide pointer-events-auto"
+        className="absolute left-1/2 -translate-x-1/2 font-serif text-xl tracking-wide"
       >
         Dime
       </Link>
-      <div className="flex items-center gap-6 font-sans text-sm tracking-widest uppercase pointer-events-auto">
+      <div className="flex items-center gap-6 font-sans text-sm tracking-widest uppercase">
         <button type="button" className="transition-opacity hover:opacity-70">
           $USD (EN)
         </button>
-        <Link href="#" className="transition-opacity hover:opacity-70">
+        <Link href="/cart" className="transition-opacity hover:opacity-70">
           CART (0)
         </Link>
       </div>
