@@ -29,7 +29,7 @@ export default function Home() {
           <HeroSection
             title="Holiday 25"
             cta="SHOP"
-            ctaHref="#"
+            ctaHref="/collections/holiday-25"
             backgroundClassName="bg-[#0f1412]"
           />
           <HeroSection
